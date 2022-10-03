@@ -2,12 +2,11 @@ package emp;
 import java.util.Random;
 import java.util.Scanner;
 public class EmployeeWage {
+    Random r = new Random();//UC1
+    int wagePerHour=20;
+    int empHour;
 
-    public static void main(String[] args) {
-        System.out.println("Welcome To Employee Wage Computation");
-        Random r = new Random();//UC1
-        int wagePerHour=20;
-        int empHour;
+    void EmployeeWage(int workDays) {
         int empcheck = r.nextInt(3);
         // UC4 Switch case used to check employee attendance status
         switch(empcheck){ // UC1 to check the Employee is present or absent using RANDOM class.
@@ -28,8 +27,7 @@ public class EmployeeWage {
         System.out.println("Employee Wage for one day is: "+wage);
         //uc5 to calculate monthly wage of employee
         System.out.println("Enter number of working days in one month: ");
-        Scanner sc = new Scanner(System.in);
-        int workDays = sc.nextInt();
+
         int monthlyWage = wage*workDays;
         int monthlyHour = empHour*workDays;
         System.out.println("Employee monthly salary will be : "+monthlyWage);
@@ -43,5 +41,17 @@ public class EmployeeWage {
             System.out.println("Worker did not work for 20 days or 100 hrs.");
             System.out.println("no salary for worker.");
         }
+
+    }
+    public static void main(String[] args) {
+        System.out.println("Welcome To Employee Wage Computation");
+        EmployeeWage obj = new EmployeeWage();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Employee Working Days");
+        int n = sc.nextInt();
+        obj.EmployeeWage(n);
+
+
+
     }
 }
